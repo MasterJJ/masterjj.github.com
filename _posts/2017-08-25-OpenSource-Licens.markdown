@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "OpenSource Licens List"
