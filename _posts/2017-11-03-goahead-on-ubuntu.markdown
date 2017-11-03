@@ -12,15 +12,18 @@ OS ubuntu16.04 x64
 기본 패키지 설치 
 sudo apt-get -y vim git builld-essential
 
------------
+
+-----------------
 goahead 는 여러플랫폼을 지원하는데 
 
 linux 환경에 대해서는 뭔가 쫌 부족하게 설명해놧다 내가 느끼기에는 
 
 linux make 명령으로 하면 뭔가 잘안된다.  귀찮아..
 
-보면 기본 make 명령 말고 makeme 라는  빌드툴로 하게 되어있는데 좀 귀찮지만 이것도 사전에 빌드해서 설치 해놔야한다.
---------------
+보면 기본 make 명령 말고 makeme 라는  빌드툴로 하게 되어있는데 좀 귀찮지만
+이것도 사전에 빌드해서 설치 해놔야한다.
+
+-----------------
 git clone https://github.com/embedthis/makeme
 
 make boot
