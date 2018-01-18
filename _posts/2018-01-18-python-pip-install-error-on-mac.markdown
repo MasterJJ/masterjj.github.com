@@ -12,6 +12,7 @@ pip  python 패키지 관리자를 설치하려던 도중
 brew upgrade python 
 
 -----------------
+~~~~
 iMac:github masterj$ brew upgrade python
 ==> Upgrading 1 outdated package, with result:
 python 2.7.14_2
@@ -20,7 +21,7 @@ python 2.7.14_2
 ==> Installing python dependency: pkg-config
 xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 Error: Failure while executing: git config --local --replace-all homebrew.private true
-
+~~~~
 -----------------
 brew 업그레이드를 해봐도 
 python 을 다시 설치해봐도 안됨..
@@ -28,6 +29,7 @@ python 을 다시 설치해봐도 안됨..
 
 
 -----------------
+~~~~
 just to close this out... I upgraded to Sierra and initially got this error
 
 Ryans-MacBook-Pro:~ ryanc$ brew install rosie
@@ -57,7 +59,9 @@ Updating Homebrew...
 ==> Cloning https://github.com/jamiejennings/rosie-pattern-language.git
 Cloning into '/Users/ryanc/Library/Caches/Homebrew/rosie--git'...
 remote: Counting objects: 136, done.
+~~~~
 -----------------
+
 원문 https://github.com/jamiejennings/homebrew-rosie/issues/1
 
 어째든 저 개발자는 roise 라고 하는패키지를 설치하고 싶었는데 동일하게 설치가 안됬음
