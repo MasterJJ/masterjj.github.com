@@ -33,6 +33,7 @@ http://jekyllrb-ko.github.io/docs/troubleshooting/
 jeykyll 설치 위치 변경
 (여기서 관련페이지보면 sudo 왠만하면 쓰지 말라는데 뭐 조심해서 쓰길,
  sudo를 습관처럼 쓰고있다면 안좋은 습관이다)
+
 -----------------
 ~~~~
 sudo gem install -n /usr/local/bin jekyll
@@ -88,6 +89,7 @@ bundle exec jekyll build
 bundle exec jekyll serve
 ~~~~
 -----------------
+
 번들을 이용해 현재 gem파일등을 업데이트 한다.
 jekyll 설정을 새로빌드하고
 jekyll 을 서빙 한다.
