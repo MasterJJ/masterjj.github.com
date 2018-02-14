@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Best Partition Tool</title>
+  <meta name="description" content="일반 데스크탑 pc 에서 윈도우와 우분투 듀얼부팅을 자주하던 나는">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/clean/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/clean/jekyll/update/2018/01/02/best-partition-tool.html">
+  <link rel="alternate" type="application/rss+xml" title="MasterJ's Blog" href="http://localhost:4000/clean/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/clean/">MasterJ's Blog</a>
+
+    <nav class="site-nav">
+        
+          
+          <a class="page-link" href="/clean/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">The Best Partition Tool</h1>
+    <p class="post-meta">Jan 2, 2018</p>
+  </header>
+
+  <article class="post-content">
+    <p>일반 데스크탑 pc 에서 윈도우와 우분투 듀얼부팅을 자주하던 나는</p>
+
+<p>윈도우 업데이트시 가끔 grub partition 을 자주 날려먹기에</p>
+
+<p>넘나 귀찮다고 느끼던중 linux partition 을 윈도우 디스크관리자에서 지워버렷다.</p>
+
+<p>복구가  쉽게 되리라 생각했지만</p>
+
+<p>ext4 파티션으로 만 떡칠되어 있던 디스크는 디스크관리 유틸에서 보여질생각을 안한다.</p>
+
+<p>너무 짜증남….</p>
+
+<p>(MBR 레코드가 망가졋거나 아니면 Ubuntu 가 좋아하는포맺으로 파티션이 이루어져 있으면 문제다)</p>
+
+<p>여러 다른 유틸을 사용해보려했는데… 유료인점  참으로 열받는다.</p>
+
+<p>그래서 다음 방법을 추천한다.</p>
+
+<p>ubuntu 가상 모드로 부팅시킨다.</p>
+
+<hr />
+<p>ubuntu 시디 또는 USB 로 부팅해서 trial 또는 guest mode 로 부팅한다.</p>
+
+<hr />
+
+<p>부팅이 되면  터미널 에서 gnome-disks  명령어를 실행한다.</p>
+
+<hr />
+
+<p>~$ gnome-disks</p>
+
+<hr />
+
+<p>실행하면 gnome 그래픽 기반의 UI 가 실행되고 보이지 않던 디스크가 보인다.</p>
+
+<p>나는 여기서 해당 녀석의 파티션을 - 버튼을 클릭하여 다 삭제 하였다.
+추가로 해당 화면에서 + 버튼을 통해 파티션을 추가하면서 원하는 포맺으로 구성할수있다.
+진행이 완료되면 CD 또는USB 타입의 설치디스크를 제거하고 부팅 ~~~
+볼륨 문자를 지정하지 않았기때문에 윈도우 (디스크관리자) 에서 새디스크를 추가하듯이 문자를 할당하면된다.
+(윈도우에서 다시 재포맺해야 한다 윈도우에서 포맺되지 않은 파티션이라고 뭐라한다. )
+그후 윈도우에서 해당 디스크가 다시 보이는것을 알수있다.</p>
+
+
+  </article>
+
+</div>
+
+    </div>
+
+  </body>
+
+</html>

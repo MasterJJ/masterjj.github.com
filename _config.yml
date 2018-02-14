@@ -1,12 +1,11 @@
 # Site settings
 title: MasterJ's Blog
-email: your-email@domain.com
+email: ronchaos@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
  Enjoy Lift Style
-  #  Write an awesome description for your new site here. You can edit this
-  #line in _config.yml.
 baseurl: "/clean" # the subpath of your site, e.g. /blog/
-url: "http://masterjj.github.io/clean/" # the base hostname & protocol for your site
+url: "https://masterjj.github.io/clean/"
+# the base hostname & protocol for your site
 #twitter_username: jekyllrb
 github_username: masterjj 
 
