@@ -1,69 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Wall-E</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/vendor/syntax.css">
+    <link rel="stylesheet" href="/assets/css/vendor/semantic.min.css"/>
 
-  <title>About</title>
-  <meta name="description" content="Enjoy Lift Style
-">
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:600' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/clean/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/clean/about/">
-  <link rel="alternate" type="application/rss+xml" title="MasterJ's Blog" href="http://localhost:4000/clean/feed.xml" />
+    <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 </head>
 
-
-  <body>
-
-    <header class="site-header">
-
-  <div class="wrapper">
-
-    <a class="site-title" href="/clean/">MasterJ's Blog</a>
-
-    <nav class="site-nav">
+<body>
+    
+    <div class="page-wrap">
+        <div class="header-wrapper">
+    <header>
+        <!-- logo and description -->
         
-          
-          <a class="page-link" href="/clean/about/">About</a>
-          
+        <div class="head-area">
+            <h1 class="site-logo">
+                <a href="/"><img src="/assets/img/logo.png" class="logo"/></a>
+            </h1>
+            <h3 class="site-description">A Modern Jekyll Theme</h3>
+        </div>
         
-          
-        
-          
-        
-          
-        
-    </nav>
+        <nav class="site-nav">
+            <div class="left-nav">
+                <!-- add titles to all buttons -->
+                <div class="ui secondary menu inverted">
+                    <a class="item" href="/">
+                        Home
+                    </a>
+                    <a class="item" href="/about.html">
+                        About
+                    </a>
+                    <a class="item" href="/archive.html">
+                        Archive
+                    </a>
+                    <div class="right menu">
+                        <div id="head-search" class="ui category search item">
+                            <div class="ui transparent icon input">
+                                <input placeholder="Search..." type="text" id="search-input" onkeypress="handleKeyPress()">
+                                <i class="search link icon" onclick="handleSubmit()"></i>
+                            </div>
+                        </div>
 
-  </div>
-
-</header>
-
-
-    <div class="page-content">
-        <div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">About</h1>
-  </header>
-
-  <article class="post-content">
+                        <a class="item" href="http://stallman.org/facebook.html">
+                            <i class="facebook link icon"></i>
+                        </a>
+                        <a class="item" href="https://github.com/abhn">
+                            <i class="github link icon"></i>
+                        </a>
+                        <a class="item" href="/feed.xml">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-nav"></div>
+        </nav>
+    </header>
+</div>
+        <main>
+            <div class="post-container">
+    <center>
+        <h1 class="post-title">About</h1>
+    </center>
+    <div class="ui divider"></div>
     <p>This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at <a href="http://jekyllrb.com/">jekyllrb.com</a></p>
 
 <p>You can find the source code for the Jekyll new theme at: <a href="https://github.com/jglovier/jekyll-new">github.com/jglovier/jekyll-new</a></p>
 
 <p>You can find the source code for Jekyll at <a href="https://github.com/jekyll/jekyll">github.com/jekyll/jekyll</a></p>
 
-  </article>
-
+    <br/>
 </div>
-
+        </main>
     </div>
+    
+    <footer>
+    <div class="footer-wrapper">
+        <div class="ui secondary menu inverted">
+            <p class="item">Wall-E &copy; 2017</p>
+            <div class="right menu">
+                <a class="item" href="/archive.html">
+                    Latest Posts
+                </a>
+                <a class="item" href="https://twitter.com/fsf">
+                    Twitter
+                </a>
+                <a class="item" href="https://github.com/abhn">
+                    Github
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/semantic.min.js"></script>
 
-  </body>
+    <script src="/assets/js/vendor/jquery.min.js"></script>
+    <script src="/assets/js/vendor/semantic.min.js"></script>
+    <script type="/assets/js/main.js"></script>
+</body>
 
 </html>

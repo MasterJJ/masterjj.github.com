@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Wall-E</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/vendor/syntax.css">
+    <link rel="stylesheet" href="/assets/css/vendor/semantic.min.css"/>
+
+    <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="page-wrap">
+        <div class="header-wrapper">
+    <header>
+        <!-- logo and description -->
+        
+        <nav class="site-nav">
+            <div class="left-nav">
+                <!-- add titles to all buttons -->
+                <div class="ui secondary menu inverted">
+                    <a class="item" href="/">
+                        Home
+                    </a>
+                    <a class="item" href="/about.html">
+                        About
+                    </a>
+                    <a class="item" href="/archive.html">
+                        Archive
+                    </a>
+                    <div class="right menu">
+                        <div id="head-search" class="ui category search item">
+                            <div class="ui transparent icon input">
+                                <input placeholder="Search..." type="text" id="search-input" onkeypress="handleKeyPress()">
+                                <i class="search link icon" onclick="handleSubmit()"></i>
+                            </div>
+                        </div>
+
+                        <a class="item" href="http://stallman.org/facebook.html">
+                            <i class="facebook link icon"></i>
+                        </a>
+                        <a class="item" href="https://github.com/abhn">
+                            <i class="github link icon"></i>
+                        </a>
+                        <a class="item" href="/feed.xml">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-nav"></div>
+        </nav>
+    </header>
+</div>
+        <main>
+            <div class="post-container">
+    <center>
+        <span class="date">
+            02 Jan 2018 
+             
+        </span>
+        <h1 class="post-title">The Best Partition Tool</h1>
+    </center>
+    <div class="ui divider"></div>
+    <p>일반 데스크탑 pc 에서 윈도우와 우분투 듀얼부팅을 자주하던 나는</p>
+
+<p>윈도우 업데이트시 가끔 grub partition 을 자주 날려먹기에</p>
+
+<p>넘나 귀찮다고 느끼던중 linux partition 을 윈도우 디스크관리자에서 지워버렷다.</p>
+
+<p>복구가  쉽게 되리라 생각했지만</p>
+
+<p>ext4 파티션으로 만 떡칠되어 있던 디스크는 디스크관리 유틸에서 보여질생각을 안한다.</p>
+
+<p>너무 짜증남….</p>
+
+<p>(MBR 레코드가 망가졋거나 아니면 Ubuntu 가 좋아하는포맺으로 파티션이 이루어져 있으면 문제다)</p>
+
+<p>여러 다른 유틸을 사용해보려했는데… 유료인점  참으로 열받는다.</p>
+
+<p>그래서 다음 방법을 추천한다.</p>
+
+<p>ubuntu 가상 모드로 부팅시킨다.</p>
+
+<hr />
+<p>ubuntu 시디 또는 USB 로 부팅해서 trial 또는 guest mode 로 부팅한다.</p>
+
+<hr />
+
+<p>부팅이 되면  터미널 에서 gnome-disks  명령어를 실행한다.</p>
+
+<hr />
+
+<p>~$ gnome-disks</p>
+
+<hr />
+
+<p>실행하면 gnome 그래픽 기반의 UI 가 실행되고 보이지 않던 디스크가 보인다.</p>
+
+<p>나는 여기서 해당 녀석의 파티션을 - 버튼을 클릭하여 다 삭제 하였다.
+추가로 해당 화면에서 + 버튼을 통해 파티션을 추가하면서 원하는 포맺으로 구성할수있다.
+진행이 완료되면 CD 또는USB 타입의 설치디스크를 제거하고 부팅 ~~~
+볼륨 문자를 지정하지 않았기때문에 윈도우 (디스크관리자) 에서 새디스크를 추가하듯이 문자를 할당하면된다.
+(윈도우에서 다시 재포맺해야 한다 윈도우에서 포맺되지 않은 파티션이라고 뭐라한다. )
+그후 윈도우에서 해당 디스크가 다시 보이는것을 알수있다.</p>
+
+
+    <div class="ui horizontal divider">
+        Thank You For Reading
+    </div>
+    <!-- author box -->
+<div class="ui segment">
+    <div class="ui items">
+        <div class="item">
+            <a class="ui circular tiny image">
+                <img src="/assets/img/profile.jpg">
+            </a>
+            <div class="content">
+                <a class="header">Abhishek Nagekar</a>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+
+        var disqus_shortname = 'nagekar'; 
+        var disqus_developer = 0; // developer mode is on
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+</div>
+        </main>
+    </div>
+    
+    <footer>
+    <div class="footer-wrapper">
+        <div class="ui secondary menu inverted">
+            <p class="item">Wall-E &copy; 2017</p>
+            <div class="right menu">
+                <a class="item" href="/archive.html">
+                    Latest Posts
+                </a>
+                <a class="item" href="https://twitter.com/fsf">
+                    Twitter
+                </a>
+                <a class="item" href="https://github.com/abhn">
+                    Github
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/semantic.min.js"></script>
+
+    <script src="/assets/js/vendor/jquery.min.js"></script>
+    <script src="/assets/js/vendor/semantic.min.js"></script>
+    <script type="/assets/js/main.js"></script>
+</body>
+
+</html>

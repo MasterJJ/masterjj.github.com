@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Wall-E</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/vendor/syntax.css">
+    <link rel="stylesheet" href="/assets/css/vendor/semantic.min.css"/>
+
+    <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="page-wrap">
+        <div class="header-wrapper">
+    <header>
+        <!-- logo and description -->
+        
+        <nav class="site-nav">
+            <div class="left-nav">
+                <!-- add titles to all buttons -->
+                <div class="ui secondary menu inverted">
+                    <a class="item" href="/">
+                        Home
+                    </a>
+                    <a class="item" href="/about.html">
+                        About
+                    </a>
+                    <a class="item" href="/archive.html">
+                        Archive
+                    </a>
+                    <div class="right menu">
+                        <div id="head-search" class="ui category search item">
+                            <div class="ui transparent icon input">
+                                <input placeholder="Search..." type="text" id="search-input" onkeypress="handleKeyPress()">
+                                <i class="search link icon" onclick="handleSubmit()"></i>
+                            </div>
+                        </div>
+
+                        <a class="item" href="http://stallman.org/facebook.html">
+                            <i class="facebook link icon"></i>
+                        </a>
+                        <a class="item" href="https://github.com/abhn">
+                            <i class="github link icon"></i>
+                        </a>
+                        <a class="item" href="/feed.xml">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-nav"></div>
+        </nav>
+    </header>
+</div>
+        <main>
+            <div class="post-container">
+    <center>
+        <span class="date">
+            14 Feb 2018 
+             
+        </span>
+        <h1 class="post-title">jekyll not working Mac 10.13 Fix</h1>
+    </center>
+    <div class="ui divider"></div>
+    <p>jekyll 을 쓰다 보면. 여러 PC에서 사용하게 되는데 
+보통 MacBookPro 에서 환경하다가 IMac에서 추가로 
+사용하게 되었다.
+하지만 iMac은 안되네</p>
+
+<p>os 가 다르지는 않지만 맥북은 좀더 낮은 버전에서 업그레이드 한거고 
+아이맥은 영입한순간부터 최신OS 하이시에라 였다.</p>
+
+<p>이유는 ruby 와 gem 플러그인등을을 설치할때
+/usr/bin 을 사용하는데. 10.13 버전에서는 해당 위치가</p>
+
+<p>시스템 무결성 강화로 인해 일반/관리자 계정 으로도 수정할수 없는 
+wheel 계정 권한으로 소속되어진것. 일반 사용자 가아니라 
+시스템 고유의 권한 계정이다. (일반적인 방법으로는 수정할수없다.)</p>
+
+<p>jekyll 에서도 해당 버전에 대한 호환 문제에 대하여 언급하고 있지만 
+사실상 해결 방법은 다르지 않는가 ?   일단 이미 사용하고 있엇으니</p>
+
+<p>아래 방법을 정리한다.
+참고 링크
+http://jekyllrb-ko.github.io/docs/troubleshooting/</p>
+
+<p>기존에 설치 jekyll 과 그외 설치 정보는 알아서 삭제 해두자</p>
+
+<p>jeykyll 설치 위치 변경
+(여기서 관련페이지보면 sudo 왠만하면 쓰지 말라는데 뭐 조심해서 쓰길,
+ sudo를 습관처럼 쓰고있다면 안좋은 습관이다)</p>
+
+<hr />
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gem install -n /usr/local/bin jekyll
+</code></pre></div></div>
+<hr />
+
+<p>ruby 설치 위치 변경 with brew
+brew 를 이용한 ruby 설치는 워낙 많이 사용하니 더이상 설명안하겠다.</p>
+
+<hr />
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew install ruby
+</code></pre></div></div>
+<hr />
+
+<p>설치는 잘될것이다.
+brew 를 보통 사용하는데 ruby 만은 brew 보다는 
+/usr/local  하위는 사용자가 수정가능한. 안전한 공간으로 정해놓았다.</p>
+
+<p>환경변수 PATH 에 해당 위치도 추가해준다.</p>
+
+<p>사용자 하위 .bash_profile  파일에 다음을 추가한다.</p>
+
+<hr />
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=/usr/local/bin:$PATH
+</code></pre></div></div>
+<hr />
+
+<p>뭐여기 까지는 jekyll troubleshooting 페이지에
+한글로 자세히 설명되어있는 부분이다.
+이후에 생기는 문제는 jekyll 을 이미 운영중에 다른환경에서 사용시
+문제가 되는것을 해결하는 것 이다.</p>
+
+<p>jekyll 파일 구조에서 Gemfiie.lock 파일을 보면
+지원가능한 라이브러리 버전 요구사항 등이 정리되어있다.
+jekyll serve 명령을 통해 실행하려고 하면 버전이 맞지 않는다고 안됨.</p>
+
+<p>그럼 운영하려는 환경에서만 지원 가능한 Gemfile.lock 으로 다시 초기화 해야한다.
+물론 Gemfile.lock 은 환경별로 자주 변경하면 자꾸 귀찮아지니
+커밋은 하지 않았다.</p>
+
+<p>간단한 스크립트로 필요시 초기화 하도록 추가했다.
+아래 명령어다.</p>
+
+<hr />
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle update
+bundle exec jekyll build
+bundle exec jekyll serve
+</code></pre></div></div>
+<hr />
+
+<p>번들을 이용해 현재 gem파일등을 업데이트 한다.
+jekyll 설정을 새로빌드하고
+jekyll 을 서빙 한다.</p>
+
+<p>뭐대충 이렇게 하니까 동작하드라.</p>
+
+<p>잘알지도 못하는 jekyll 과 ruby 로 이런걸 해결하려니
+커뮤니티 검색은 필수였다.</p>
+
+<p>아래 참고한 링크다.</p>
+
+<p>http://talk.jekyllrb.com/t/gemfile-requests-liquid-3-0-6/254</p>
+
+
+    <div class="ui horizontal divider">
+        Thank You For Reading
+    </div>
+    <!-- author box -->
+<div class="ui segment">
+    <div class="ui items">
+        <div class="item">
+            <a class="ui circular tiny image">
+                <img src="/assets/img/profile.jpg">
+            </a>
+            <div class="content">
+                <a class="header">Abhishek Nagekar</a>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+
+        var disqus_shortname = 'nagekar'; 
+        var disqus_developer = 0; // developer mode is on
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+</div>
+        </main>
+    </div>
+    
+    <footer>
+    <div class="footer-wrapper">
+        <div class="ui secondary menu inverted">
+            <p class="item">Wall-E &copy; 2017</p>
+            <div class="right menu">
+                <a class="item" href="/archive.html">
+                    Latest Posts
+                </a>
+                <a class="item" href="https://twitter.com/fsf">
+                    Twitter
+                </a>
+                <a class="item" href="https://github.com/abhn">
+                    Github
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/semantic.min.js"></script>
+
+    <script src="/assets/js/vendor/jquery.min.js"></script>
+    <script src="/assets/js/vendor/semantic.min.js"></script>
+    <script type="/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,13 +1,10 @@
-# Site settings
-title: MasterJ's Blog
-email: ronchaos@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
- Enjoy Lift Style
-baseurl: "/clean" # the subpath of your site, e.g. /blog/
-url: "https://masterjj.github.io/clean/"
-# the base hostname & protocol for your site
-#twitter_username: jekyllrb
-github_username: masterjj 
+title : Wall-E - Jekyll
+description: 'A Modern Jekyll Theme'
 
-# Build settings
 markdown: kramdown
+highlighter: rouge
+logo: false
+paginate: 15
+baseurl: /
+plugins: [jekyll-gist]
+permalink: /:year/:month/:title.html

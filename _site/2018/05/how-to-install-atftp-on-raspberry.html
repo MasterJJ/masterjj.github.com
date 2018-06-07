@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Wall-E</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/vendor/syntax.css">
+    <link rel="stylesheet" href="/assets/css/vendor/semantic.min.css"/>
+
+    <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="page-wrap">
+        <div class="header-wrapper">
+    <header>
+        <!-- logo and description -->
+        
+        <nav class="site-nav">
+            <div class="left-nav">
+                <!-- add titles to all buttons -->
+                <div class="ui secondary menu inverted">
+                    <a class="item" href="/">
+                        Home
+                    </a>
+                    <a class="item" href="/about.html">
+                        About
+                    </a>
+                    <a class="item" href="/archive.html">
+                        Archive
+                    </a>
+                    <div class="right menu">
+                        <div id="head-search" class="ui category search item">
+                            <div class="ui transparent icon input">
+                                <input placeholder="Search..." type="text" id="search-input" onkeypress="handleKeyPress()">
+                                <i class="search link icon" onclick="handleSubmit()"></i>
+                            </div>
+                        </div>
+
+                        <a class="item" href="http://stallman.org/facebook.html">
+                            <i class="facebook link icon"></i>
+                        </a>
+                        <a class="item" href="https://github.com/abhn">
+                            <i class="github link icon"></i>
+                        </a>
+                        <a class="item" href="/feed.xml">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-nav"></div>
+        </nav>
+    </header>
+</div>
+        <main>
+            <div class="post-container">
+    <center>
+        <span class="date">
+            16 May 2018 
+             
+        </span>
+        <h1 class="post-title">How to Install atftp on raspberry</h1>
+    </center>
+    <div class="ui divider"></div>
+    <p>tftp 는 항상 문제다  네트워크 컨디션 과 임베디드 장치 특성상 
+개발단계 의 디바이스는 항상 불안정하고  스트레스를 유발한다.</p>
+
+<p>본격 개발도 시작못했는데 말이지…</p>
+
+<p>네트워크 컨디션이 안좋으면 tftp 다운에만 의존하는 환경에서는 죽을 맛이다.</p>
+
+<p>uboot 에서 지원하는 tftp.c client 는  미치도록 느리고 미치도록 약하다.</p>
+
+<p>retry count max 조차 10 으로 지정되어있어서 매번 실패를 하고 이어받기가 아닌 재시작……</p>
+
+<p>심하면 하루종일 되지도 않는다. 그럴땐 100이상으로 uboot code tftp.c 에서 수정해주면된다.</p>
+
+<p>미안하다 이제 본편</p>
+
+<p>빌어먹을 라즈베리파이 는 tftp 설정 중에 정상동작하질 않는다. 1시간 이상 삽질했는데 tftp-hpa 로 상태가 안좋다.</p>
+
+<p>왜그러니..버그니 ?  리포팅된거 보니 버그다 .</p>
+
+<p>다른 패키지를 찾아보니 atftp 라는 녀석이 있다. 간단하고 테스트 해보니 기존 tftp 보다 빠르다.</p>
+
+<ol>
+  <li>
+    <h2 id="설치">설치</h2>
+    <p>~~~~
+apt-get install atftpd
+apt-get install atftp</p>
+  </li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----------------
+
+위 두패키지는 데몬서비스와 클라이언트를 같이 설치 한다.  클라이언트 는 그냥 테스트를위해 설치했다.
+
+
+2. 설정
+-----------------
+</code></pre></div></div>
+
+<p>sudo vi /etc/default/atftpd</p>
+
+<p>USE_INETD=true  수정  USE_INETD=false</p>
+
+<p>/srv/tftp  수정  /tftpboot</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----------------
+설정은 별로 할게 없어서 간단하게 따라하시길 
+tftp 설정은 어려울게 없다. 
+다만 tftp 디렉토리 설정시 권한 문제가 있을수도 있다.
+
+
+3. tftp 디렉토리 설정
+-----------------
+</code></pre></div></div>
+
+<p>sudo mkdir /tftpboot</p>
+
+<p>sudo chmod -R 777 /tftpboot</p>
+
+<p>sudo chown -R nobody /tftpboot</p>
+
+<p>sudo /etc/init.d/atftpd restart</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----------------
+
+자연스럽게 root 하위 /tftpboot 를 고전적으로 생성후 
+권한 설정 해주고 서비스 재시작 
+
+
+4. tftp 테스트
+-----------------
+</code></pre></div></div>
+
+<p>atftp 192.168.0.2</p>
+
+<p>atftp&gt; put test.txt</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----------------
+test.txt 파일을 /tftpboot 에 밀어넣는 테스트 이다. 잘되면 끝..
+
+성능은 훨씬 좋았다.
+
+
+ref
+http://www.ubuntugeek.com/howto-setup-advanced-tftp-server-in-ubuntu.html
+
+-----------------
+</code></pre></div></div>
+<p>bundle update
+bundle exec jekyll build
+bundle exec jekyll serve
+~~~~
+—————–</p>
+
+
+    <div class="ui horizontal divider">
+        Thank You For Reading
+    </div>
+    <!-- author box -->
+<div class="ui segment">
+    <div class="ui items">
+        <div class="item">
+            <a class="ui circular tiny image">
+                <img src="/assets/img/profile.jpg">
+            </a>
+            <div class="content">
+                <a class="header">Abhishek Nagekar</a>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+
+        var disqus_shortname = 'nagekar'; 
+        var disqus_developer = 0; // developer mode is on
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+</div>
+        </main>
+    </div>
+    
+    <footer>
+    <div class="footer-wrapper">
+        <div class="ui secondary menu inverted">
+            <p class="item">Wall-E &copy; 2017</p>
+            <div class="right menu">
+                <a class="item" href="/archive.html">
+                    Latest Posts
+                </a>
+                <a class="item" href="https://twitter.com/fsf">
+                    Twitter
+                </a>
+                <a class="item" href="https://github.com/abhn">
+                    Github
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/semantic.min.js"></script>
+
+    <script src="/assets/js/vendor/jquery.min.js"></script>
+    <script src="/assets/js/vendor/semantic.min.js"></script>
+    <script type="/assets/js/main.js"></script>
+</body>
+
+</html>
