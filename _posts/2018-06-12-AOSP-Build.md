@@ -146,3 +146,13 @@ aosp_arm-eng 빌드 타임을 설정후
 좀더 자세한 거는 웹페이지 참고 하시길
 
 
+### 참조 
+
+추가로 친절한 소니 개발자 페이지를 찾아서 한번 보길 추천한다
+
+```
+https://developer.sony.com/develop/open-devices/guides/aosp-build-instructions/build-aosp-lollipop-5-1
+
+```
+
+
