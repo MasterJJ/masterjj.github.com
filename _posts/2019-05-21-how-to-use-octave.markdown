@@ -43,11 +43,11 @@ serial(com) 인터페이스를 octave  에서 read/write 해야 하는 기능이
 
 serial 을 지원하는 패키지는 instrument-control 패키지를 추가로 설치해야 한다.
 
-{% highlight %}
+
 
         pkg install -forge general instrument-control 
 
-{% endhighlight %}
+
 
 위 명령어는 octave shell 에서 실행하면 된다 
 
@@ -72,12 +72,12 @@ pkg 접근 스토리지 본거지가 sourceforge 다 근데 접속이 안된다
 
 나는 proxy 우회를 통해 소스를 받았다 (ㅡㅜ) 
 
-{% highlight %}
+
 
        octave> pkg install instrument-control-0.4.0.tar.gz
 
 
-{% endhighlight %}
+
 
 분명 나처럼 고통 받는 사람들이 있을거라 생각한다.
 
