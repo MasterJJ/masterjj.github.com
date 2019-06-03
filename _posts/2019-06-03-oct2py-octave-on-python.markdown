@@ -73,8 +73,6 @@ https://github.com/blink1073/oct2py/tree/master/example
 #### roundtrip.py
 
 
-{% highlight c linenos %}
-
 """Send a numpy array roundtrip to Octave using an m-file.
 """
 from oct2py import octave
@@ -86,12 +84,10 @@ if __name__ == '__main__':
     import pprint
     pprint.pprint([x, x.dtype, out, oclass, out.dtype])
 
-{% endhighlight %}
 
 #### roundtrip.m
 
 
-{% highlight c linenos %}
 
 function [x, cls] = roundtrip(y)
 
@@ -106,5 +102,3 @@ function [x, cls] = roundtrip(y)
   end
 
 end
-
-{% endhighlight %}
