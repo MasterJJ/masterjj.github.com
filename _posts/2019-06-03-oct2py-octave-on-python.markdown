@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ct2py octave on python"
+title: "oct2py Octave On Python"
 categories: Develop
 ---
 # OCTAVE, oct2py
