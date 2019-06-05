@@ -3,7 +3,7 @@ layout: post
 title: "Rasberry pi zero w version talk"
 categories: Develop
 ---
-# Rasberry pi zero w
+# Rasberry PI Zero W
 
 ![My helpful screenshot]({{ "/assets/img/ras_zerow.jpg" | absolute_url }})
 
