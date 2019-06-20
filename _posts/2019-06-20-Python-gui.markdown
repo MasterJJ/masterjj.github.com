@@ -50,3 +50,4 @@ https://docs.python.org/ko/3/library/tk.html
 
 tkinter 와 연동해서 사용하면 지금보다는 매우 활용적일거 같다
 
+참고 : https://sebsauvage.net/python/gui/
